@@ -6,7 +6,6 @@ from saucenao_api import SauceNao
 
 with open(f'api.txt', 'r') as f:
     api = f.read()
-
 saucelook = SauceNao(api)
 
 
@@ -23,10 +22,10 @@ bot = commands.Bot(command_prefix='%', intents=discord.Intents.all())
 @bot.event
 async def on_ready():
     print('Online')
-
     # guilg = await bot.fetch_guild(1092925838401486948)
     # bot.tree.copy_global_to(guild=guilg)
     # await bot.tree.sync(guild=guilg)
+
     guilg = await bot.fetch_guild(647798243207544842)
     bot.tree.copy_global_to(guild=guilg)
     await bot.tree.sync(guild=guilg)
