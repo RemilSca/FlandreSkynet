@@ -7,7 +7,7 @@ from saucenao_api import SauceNao
 with open(f'api.txt', 'r') as f:
     api = f.read()
 
-sauce = SauceNao(api)
+saucelook = SauceNao(api)
 
 
 intents = discord.Intents.default()
@@ -49,13 +49,13 @@ async def sauce(ctx):
     x = m.embeds
     if(len(x)>0):
         for embed in x:
-            results = sauce.from_url(embed.url)
+            results = saucelook.from_url(embed.url)
             re = results.long_remaining
             best = results[0]
             await ctx.send(f'Remaining searches for 2day: {re}\nI am {best.similarity}% certain, it is {best.urls[0]}')
     else:
         for embed in m.attachments:
-            results = sauce.from_url(embed.url)
+            results = saucelook.from_url(embed.url)
             re = results.long_remaining
             best = results[0]
             await ctx.send(f'Remaining searches for 2day: {re}\nI am {best.similarity}% certain, it is {best.urls[0]}')
